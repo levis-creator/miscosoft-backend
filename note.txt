@@ -1,0 +1,3 @@
+TODO: connect to Africa let's talk api
+TODO: add environment variables where neccessary
+TODO: add contact table
