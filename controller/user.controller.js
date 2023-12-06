@@ -1,7 +1,7 @@
 const db = require("../config/db.config");
 const uuid = require("uuid");
 
-create_user = async (req, res) => {
+const create_user = async (req, res) => {
   try {
     const userId = uuid.v4();
     const { userName } = req.body;
@@ -14,7 +14,7 @@ create_user = async (req, res) => {
     console.error(error.message);
   }
 };
-all_users = async (req, res) => {
+const all_users = async (req, res) => {
   try {
     const allUser = await db.query("SELECT* FROM users");
     res.json(allUser.rows);
@@ -22,7 +22,7 @@ all_users = async (req, res) => {
     console.error(error.message);
   }
 };
-get_user = async (req, res) => {
+const get_user = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await db.query("SELECT * FROM users WHERE userId=$1", [id]);
@@ -31,7 +31,7 @@ get_user = async (req, res) => {
     console.error(error.message);
   }
 };
-update_user = async (req, res) => {
+const update_user = async (req, res) => {
   try {
     const { id } = req.params;
     const { userName } = req.body;
@@ -43,7 +43,7 @@ update_user = async (req, res) => {
     console.error(error);
   }
 };
-delete_user = async (req, res) => {
+const delete_user = async (req, res) => {
   try {
     const { id } = req.params;
     const deleteData = (
