@@ -2,12 +2,12 @@ const { response } = require("express");
 const db = require("../config/db.config");
 
 const create_contact = async (req, res) => {
-  const { firstname, lastname, phonenumber, email, group_address, userId } =
+  const { firstname, lastname, phonenumber, email, group_address, userId, address, city, county, company_name } =
     req.body;
   try {
     await db.query(
-      "INSERT INTO contacts (firstname, lastname, phonenumber, email, group_address, userId) VALUES($1,$2,$3,$4,$5,$6)",
-      [firstname, lastname, phonenumber, email, group_address, userId]
+      "INSERT INTO contacts (firstname, lastname, phonenumber, email, group_address, userId, address, city, county, company_name  ) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)",
+      [firstname, lastname, phonenumber, email, group_address, userId, address, city, county, company_name]
     );
     res.status(200);
     res.json("Success");
