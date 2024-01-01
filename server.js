@@ -14,11 +14,7 @@ const group_address = require("./routes/group.route")
 const app = express();
 // middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use((req, res, next) => {
-  console.log(req.url, req.method);
-  next();
-});
+// app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 // routes
