@@ -6,7 +6,7 @@ const cors = require("cors");
 const users = require("./routes/user.route");
 const messages = require("./routes/message.route")
 const contacts = require("./routes/contacts.route")
-const group_address=require("./routes/group.route")
+const group_address = require("./routes/group.route")
 
 
 
@@ -22,6 +22,7 @@ app.use((req, res, next) => {
 app.use(cors());
 
 // routes
+app.get('/', (req, res) => res.json("api"))
 app.use("/api/users", users);
 app.use("/api/messages", messages);
 app.use("/api/contacts", contacts);
